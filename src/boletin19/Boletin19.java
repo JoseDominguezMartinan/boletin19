@@ -22,11 +22,14 @@ public class Boletin19 {
         // TODO code application logic here
         Libreria Libreria1 =new Libreria(); // creamos un obxeto de tipo libreria
         // creamos un menu para realizar as operacions 
-        boolean sair=true;
-        while(sair=true){
+       boolean sair=true;
+        while(sair==true){
         int op=Integer.parseInt(JOptionPane.showInputDialog("seleccione a opción \n"
                 + "1.Engadir libro a libreria \n"
-                + "2. Vender libro"
+                + "2. Vender libro \n"
+                + "3. Amosar os libro \n"
+                + "4. Eliminar os rexistros dos que se esgotaron todas as unidades \n"
+                + "5. Consultar un libro polo seu titulo \n"
                 + "0. Para sair do programa"));
         switch(op){
             case 0:
@@ -37,13 +40,22 @@ public class Boletin19 {
                String autor= JOptionPane.showInputDialog("Inserte o autor do libro");
                String isbn= JOptionPane.showInputDialog("Inserte o isbn do libro");
                float prezo= Float.parseFloat(JOptionPane.showInputDialog("Inserte o prezo do libro"));
-                int numeroUnidades=Integer.parseInt(JOptionPane.showInputDialog("inserte o numero de unidades do lihro"));
+                int numeroUnidades=Integer.parseInt(JOptionPane.showInputDialog("inserte o numero de unidades do libro"));
                 Libros libro=new Libros(titulo,autor,isbn,prezo,numeroUnidades);
                 Libreria1.engade(libro);
                 break;
             case 2:
                 String is=JOptionPane.showInputDialog("inserte o isbn do libro que vai a vender");
                 Libreria1.vender(is);
+                break;
+            case 3:
+                Libreria1.amosar();
+                break;
+            case 4:
+                Libreria1.elimina();
+                break;
+            case 5:
+                Libreria1.consultarLibro(JOptionPane.showInputDialog("inserte o titutlo do libro a consultar"));
                 break;
             default:
                 System.out.println("opción non valida");

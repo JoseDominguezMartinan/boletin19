@@ -9,7 +9,7 @@ package com.libreria.jose;
  *
  * @author jdominguezmartinan
  */
-public class Libros {
+public class Libros implements Comparable {
     
    private String titulo;
    private String autor;
@@ -67,6 +67,26 @@ public class Libros {
     public void setNumeroUnidades(int numeroUnidades) {
         this.numeroUnidades = numeroUnidades;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Libros{"+"titulo="+titulo+", autor="+autor+", isbn="+isbn+", prezo="+prezo+", numeroUnidades="+numeroUnidades+'}';
+    }
+    
+
+    @Override
+    public int compareTo(Object o)
+    {
+        Libros l=(Libros) o;
+        if(l.titulo.compareToIgnoreCase(this.titulo)==0)
+            return 0;
+        else if(l.titulo.compareToIgnoreCase(this.titulo)>0)
+            return 1;
+        else return -1;
+    }
+
    
+    
     
 }
