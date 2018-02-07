@@ -5,6 +5,7 @@
  */
 package boletin19;
 
+import com.libreria.jose.ExcepcionNulo;
 import com.libreria.jose.Libreria;
 import com.libreria.jose.Libros;
 import javax.swing.JOptionPane;
@@ -49,7 +50,11 @@ public class Boletin19 {
                 Libreria1.vender(is);
                 break;
             case 3:
+                try{
                 Libreria1.amosar();
+                }catch (ExcepcionNulo e){
+                    System.out.println("array nulo");
+                }
                 break;
             case 4:
                 Libreria1.elimina();

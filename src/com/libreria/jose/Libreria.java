@@ -23,6 +23,7 @@ public class Libreria {
     public void vender(String isbn) // para vender un libro disminuimos a cantidade de libros que temos en un, en caso de ser cero a cantidade de libros mostraremos o aviso de que non existe libros
     {
         for(int i=0;i<lib.size();i++){
+            
             if (isbn.equals(lib.get(i).getIsbn())){
                if(lib.get(i).getNumeroUnidades()>0){ 
                  lib.get(i).setNumeroUnidades((lib.get(i).getNumeroUnidades()-1));
@@ -33,12 +34,17 @@ public class Libreria {
         }
     }
     // temos que amosar os libros que temos ordenados alfabeticamente
-    public void amosar(){
+    public void amosar() throws ExcepcionNulo{
+    if(lib==null)
+        throw new ExcepcionNulo("a libreria non ten libros");
        Collections.sort(lib); // para que isto funcione na clase libro temos que ter o metodo compareTo , e na clase implements Comparable
         for(int i=0;i<lib.size();i++){
             System.out.println(lib.get(i));  
+       
         }
         }
+        
+          
       
     
      public void elimina() // elimina os rexistros con numero de unidades cero 
