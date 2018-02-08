@@ -20,8 +20,10 @@ public class Libreria {
     {
         lib.add(l);
     }
-    public void vender(String isbn) // para vender un libro disminuimos a cantidade de libros que temos en un, en caso de ser cero a cantidade de libros mostraremos o aviso de que non existe libros
+    public void vender(String isbn) throws ExcepcionNulo // para vender un libro disminuimos a cantidade de libros que temos en un, en caso de ser cero a cantidade de libros mostraremos o aviso de que non existe libros
     {
+        if(lib.size()==0)
+            throw new ExcepcionNulo("a libreria non ten libros");
         for(int i=0;i<lib.size();i++){
             
             if (isbn.equals(lib.get(i).getIsbn())){
@@ -35,7 +37,7 @@ public class Libreria {
     }
     // temos que amosar os libros que temos ordenados alfabeticamente
     public void amosar() throws ExcepcionNulo{
-    if(lib==null)
+    if(lib.size()==0)
         throw new ExcepcionNulo("a libreria non ten libros");
        Collections.sort(lib); // para que isto funcione na clase libro temos que ter o metodo compareTo , e na clase implements Comparable
         for(int i=0;i<lib.size();i++){
@@ -47,8 +49,10 @@ public class Libreria {
           
       
     
-     public void elimina() // elimina os rexistros con numero de unidades cero 
+     public void elimina() throws ExcepcionNulo // elimina os rexistros con numero de unidades cero 
     {
+         if(lib.size()==0)
+             throw new ExcepcionNulo("a libreria non ten libros");
       for(int i=0;i<lib.size();i++){
           if(lib.get(i).getNumeroUnidades()<=0) {
               lib.remove(i);
@@ -58,7 +62,9 @@ public class Libreria {
   
      }
      // consultar un libro determinado buscando polo seu titulo
-     public void consultarLibro(String titulo){
+     public void consultarLibro(String titulo) throws ExcepcionNulo{
+         if(lib.size()==0)
+             throw new ExcepcionNulo("A libreria non ten libros");
          for(int i=0;i<lib.size();i++){
              if(titulo.equalsIgnoreCase(lib.get(i).getTitulo())){
                  System.out.println(lib.get(i));

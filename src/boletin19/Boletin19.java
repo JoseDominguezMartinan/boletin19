@@ -46,21 +46,33 @@ public class Boletin19 {
                 Libreria1.engade(libro);
                 break;
             case 2:
+                try{
                 String is=JOptionPane.showInputDialog("inserte o isbn do libro que vai a vender");
                 Libreria1.vender(is);
+                }catch(ExcepcionNulo e){
+                   JOptionPane.showMessageDialog(null,"non hay libros , inserte outra opción"); 
+                }
                 break;
             case 3:
                 try{
                 Libreria1.amosar();
                 }catch (ExcepcionNulo e){
-                    System.out.println("array nulo");
+                    JOptionPane.showMessageDialog(null,"non hay libros , inserte outra opción");
                 }
                 break;
             case 4:
+                try{
                 Libreria1.elimina();
+                }catch (ExcepcionNulo e){
+                    JOptionPane.showMessageDialog(null,"non hay libros , inserte outra opción");
+                }
                 break;
             case 5:
+                try{
                 Libreria1.consultarLibro(JOptionPane.showInputDialog("inserte o titutlo do libro a consultar"));
+                }catch (ExcepcionNulo e){
+                    JOptionPane.showMessageDialog(null,"non hay libros , inserte outra opción");
+                }
                 break;
             default:
                 System.out.println("opción non valida");
