@@ -9,16 +9,17 @@ package com.libreria.jose;
  *
  * @author jdominguezmartinan
  */
-    public class ExcepcionNulo extends Exception
+public class ExcepcionNulo extends Exception
 {
+
     public ExcepcionNulo()
     {
         super("insertou un array nulo");
     }
+
     public ExcepcionNulo(String mensaxe)
     {
         super(mensaxe);
     }
 
-    
 }

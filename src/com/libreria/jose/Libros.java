@@ -9,18 +9,21 @@ package com.libreria.jose;
  *
  * @author jdominguezmartinan
  */
-public class Libros implements Comparable {
-    
-   private String titulo;
-   private String autor;
-   private String isbn;
-   private float prezo;
-   private int numeroUnidades;
+public class Libros implements Comparable
+{
 
-    public Libros() {
+    private String titulo;
+    private String autor;
+    private String isbn;
+    private float prezo;
+    private int numeroUnidades;
+
+    public Libros()
+    {
     }
 
-    public Libros(String titulo, String autor, String isbn, float prezo, int numeroUnidades) {
+    public Libros(String titulo,String autor,String isbn,float prezo,int numeroUnidades)
+    {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
@@ -28,43 +31,53 @@ public class Libros implements Comparable {
         this.numeroUnidades = numeroUnidades;
     }
 
-    public String getTitulo() {
+    public String getTitulo()
+    {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
+    public void setTitulo(String titulo)
+    {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public String getAutor()
+    {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(String autor)
+    {
         this.autor = autor;
     }
 
-    public String getIsbn() {
+    public String getIsbn()
+    {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(String isbn)
+    {
         this.isbn = isbn;
     }
 
-    public float getPrezo() {
+    public float getPrezo()
+    {
         return prezo;
     }
 
-    public void setPrezo(float prezo) {
+    public void setPrezo(float prezo)
+    {
         this.prezo = prezo;
     }
 
-    public int getNumeroUnidades() {
+    public int getNumeroUnidades()
+    {
         return numeroUnidades;
     }
 
-    public void setNumeroUnidades(int numeroUnidades) {
+    public void setNumeroUnidades(int numeroUnidades)
+    {
         this.numeroUnidades = numeroUnidades;
     }
 
@@ -73,20 +86,21 @@ public class Libros implements Comparable {
     {
         return "Libros{"+"titulo="+titulo+", autor="+autor+", isbn="+isbn+", prezo="+prezo+", numeroUnidades="+numeroUnidades+'}';
     }
-    
 
     @Override
     public int compareTo(Object o)
     {
-        Libros l=(Libros) o;
+        Libros l = (Libros) o;
         if(l.titulo.compareToIgnoreCase(this.titulo)==0)
+        {
             return 0;
-        else if(l.titulo.compareToIgnoreCase(this.titulo)>0)
+        } else if(l.titulo.compareToIgnoreCase(this.titulo)>0)
+        {
             return 1;
-        else return -1;
+        } else
+        {
+            return -1;
+        }
     }
 
-   
-    
-    
 }
